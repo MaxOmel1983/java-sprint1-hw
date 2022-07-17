@@ -10,7 +10,6 @@ public class StepTracker {
 
 
 
-    // !!! способ многомерного массива не работает   220704_1900
     void savingSteps(int month, int day, int steps){
         if(steps > 0) {
             monthToData[month][day] = steps;
@@ -57,6 +56,12 @@ public class StepTracker {
         for(int i = 0; i < monthToData[monthStat].length; i++){
             if(monthToData[monthStat][i] >= purposeOfSteps){
                 servSeries++;
+
+                if(i == (monthToData[monthStat].length - 1)){
+                    if(serOfMaxSteps < servSeries){
+                        serOfMaxSteps = servSeries;
+                    }
+                }
             }else{
                 if(serOfMaxSteps < servSeries){
                     serOfMaxSteps = servSeries;
