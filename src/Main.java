@@ -51,6 +51,8 @@ public class Main {
                     steps = scanner.nextInt();
                     if(steps >= 0){
                         break;
+                    }else{
+                        System.out.println("Вы ввели отрицательное значение количества шагов. Пожалуйста введите правильное значение.");
                     }
                 }
 
@@ -62,13 +64,16 @@ public class Main {
                 while(true) {
                     System.out.println("Введите номер месяца от 0 до 11, по которому Вы хотитете посмотреть статистику:");
                     monthStat = scanner.nextInt();
-                    if(month >= 0){
-                        if(month < 12){
+                    if (monthStat >= 0) {
+                        if (monthStat < 12) {
                             break;
+                        }else{
+                            System.out.println("Вы ввели недопустимое значение номера месяца. Пожалуйста введите правильное значение.");
                         }
+                    }else{
+                        System.out.println("Вы ввели недопустимое значение номера месяца. Пожалуйста введите правильное значение.");
                     }
                 }
-
 
                 int monthStepsSum = stepTracker.sumStepsMonthCalc(monthStat);
 
@@ -90,7 +95,16 @@ public class Main {
 
             }else if(command == 3){
                 System.out.println("Введите новую цель по количеству шагов в день:");
-                int purposeOfStepsNew = scanner.nextInt();
+                int purposeOfStepsNew;
+                while(true) {
+                    purposeOfStepsNew = scanner.nextInt();
+                    if(purposeOfStepsNew >= 0){
+                        break;
+                    }else{
+                        System.out.println("Вы ввели недопустимое значение количества шагов. Пожалуйста введите правильное значение.");
+                    }
+                }
+
                 stepTracker.changingOfPurpose(purposeOfStepsNew);
 
             }else if(command == 4){
